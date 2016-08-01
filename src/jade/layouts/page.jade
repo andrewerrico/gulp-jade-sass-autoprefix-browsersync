@@ -1,0 +1,29 @@
+block variables
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{pageTitle}
+    link(rel="stylesheet", href="assets/css/style.css")
+  body.no-touch
+    main(role="main")
+      header.site-header(role="banner")
+        h1 
+          a(href="index.html") Title
+        include ../includes/secondary-navigation
+      article.container
+        header
+          h2 #{pageHeader}
+        .content
+          block pageContent
+        footer
+          p article footer
+      footer(role="contentinfo")
+        .site-info Site Info
+    
+    include ../includes/primary-navigation
+    
+    script(type="text/javascript", src="assets/js/jquery.min.js")
+    script(type="text/javascript", src="assets/js/app.min.js")

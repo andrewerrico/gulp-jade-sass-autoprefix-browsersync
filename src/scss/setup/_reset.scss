@@ -1,0 +1,21 @@
+html, body, div, img, span,
+h1, h2, h3, h4, h5, h6,
+p, a, ol, ul, li,
+input, label, textarea {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-size: 100%;
+  letter-spacing: normal;
+  line-height: 1;
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,19 @@
+block variables
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{pageTitle}
+    link(rel="stylesheet", href="assets/css/style.css")
+  body
+    main(role="main")
+      article.container
+        header
+        .content
+          block pageContent
+    include ../includes/primary-navigation
+    
+    script(type="text/javascript", src="assets/js/jquery.min.js")
+    script(type="text/javascript", src="assets/js/app.min.js")
