@@ -1,3 +1,25 @@
-$site-padding: 15px;
+// SETINNGS
+$grid: false;
+$responsive: false;
 
+// MAIN
+$site-padding: 15px;
 $font-face: Helvetica, Arial, sans-serif;
+
+$color-brand-primary:      #FF3D45;
+$color-brand-secondary:    #A2C9C7;
+$color-brand-alt:          #5D9F9D;
+$color-text:               #131313;
+$color-text-alt:           #656565;
+
+// BREAKPOINTS
+$xs: 544px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+// GRID
+$grid-columns: 12;
+$grid-gutter: 0;
+$grid-breakpoints : ( xs: $xs, sm: $sm, md: $md, lg: $lg ) !default;
+$grid-breakpoint-counter: 0;

@@ -3,3 +3,38 @@
 	font-size: ($sizeValue * 16) * 1px;
 	font-size: $sizeValue * 1rem;
 }
+
+// Grid modifiers
+@mixin make-col-modifier($type, $size, $columns) {
+	@if $type == push {
+		left: if($size > 0, percentage($size / $columns), auto);
+	} @else if $type == pull {
+		right: if($size > 0, percentage($size / $columns), auto);
+	} @else if $type == offset {
+		margin-left: percentage($size / $columns);
+	}
+}
+
+// Responsive breakpoints
+@mixin break-xs {
+  @media only screen and (min-width: 544px) {
+    @content;
+  }
+}
+
+@mixin break-sm {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin break-md {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+@mixin break-lg {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}

@@ -1,44 +1,45 @@
-$grid-columns: 12;
-
-.row {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-[class*='col-'] {
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-}
-
-@for $i from 1 through $grid-columns {
-  .col-xs-#{$i} {
-    width: 100% / $grid-columns * $i;
+@if $grid == true {
+  .row {
+    margin-left: -$site-padding;
+    margin-right: -$site-padding;
   }
-}
 
-@media (min-width: 768px) {
-  @for $i from 1 through $grid-columns {
-    .col-sm-#{$i} {
-      width: 100% / $grid-columns * $i;
+  [class*='col-'] {
+    float: left;
+    min-height: 1px;
+    padding-left: $site-padding;
+    padding-right: $site-padding;
+    position: relative;
+  }
+
+  @if $responsive == true {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $grid-breakpoint-counter: ($grid-breakpoint-counter + 1);
+      @for $i from 1 through $grid-columns {
+        .col-#{$breakpoint}-#{$i} {
+          width: 100% / $grid-columns * $i;
+        }
+      }
+      @each $modifier in (pull, push, offset) {
+        @for $i from 1 through $grid-columns {
+          .#{$modifier}-#{$breakpoint}-#{$i} {
+            @include make-col-modifier($modifier, $i, $grid-columns);
+          }
+        }
+      }
     }
-  }
-}
-
-@media (min-width: 992px) {
-  @for $i from 1 through $grid-columns {
-    .col-md-#{$i} {
-      width: 100% / $grid-columns * $i;
+  } @else if $responsive == false {
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
     }
-  }
-}
-
-@media (min-width: 1200px) {
-  @for $i from 1 through $grid-columns {
-    .col-lg-#{$i} {
-      width: 100% / $grid-columns * $i;
+    @each $modifier in (pull, push, offset) {
+      @for $i from 1 through $grid-columns {
+        .#{$modifier}-#{$i} {
+          @include make-col-modifier($modifier, $i, $grid-columns);
+        }
+      }
     }
   }
 }
